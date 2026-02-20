@@ -1,10 +1,15 @@
 {
   "name": "ai-code-guard",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "AI code detection tool for common AI-generated mistakes",
   "license": "MIT",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "alipay-qr.jpg",
+    "paypal-qr.jpg"
+  ],
   "bin": {
     "ai-code-guard": "dist/index.js"
   },
