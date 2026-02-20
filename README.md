@@ -37,7 +37,8 @@ ai-code-guard pay --amount 66 --currency cny
 ## 支付支持
 
 如果你希望支持项目持续维护，可以使用以下方式打赏：
-https://qr.alipay.com/fkx157688bu4y9xstidba88
+
+<img src="alipay-qr.jpg" alt="支付宝收款二维码" width="200"/>
 
 ## License
 
