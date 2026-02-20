@@ -37,14 +37,7 @@ ai-code-guard pay --amount 66 --currency cny
 ## 支付支持
 
 如果你希望支持项目持续维护，可以使用以下方式打赏：
-
-```bash
-# 生成支付链接
-ai-code-guard pay --amount 9.99 --currency usd
-ai-code-guard pay --amount 66 --currency cny
-```
-
-收款信息已内置，扫描代码后使用 pay 命令即可生成打赏链接。
+https://qr.alipay.com/fkx157688bu4y9xstidba88
 
 ## License
 
