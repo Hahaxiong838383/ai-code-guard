@@ -1,0 +1,67 @@
+name: AI Code Guard
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install ai-code-guard
+        run: npm install -g ai-code-guard
+
+      - name: Run scan
+        id: scan
+        continue-on-error: true
+        run: |
+          set +e
+          ai-code-guard . > ai-code-guard-report.txt 2>&1
+          echo "exit_code=$?" >> "$GITHUB_OUTPUT"
+          set -e
+
+      - name: Comment result on PR
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        env:
+          EXIT_CODE: ${{ steps.scan.outputs.exit_code }}
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const output = fs.readFileSync('ai-code-guard-report.txt', 'utf8');
+            const status = process.env.EXIT_CODE === '0' ? 'PASS' : 'FAIL';
+            const body = [
+              '## AI Code Guard 扫描结果',
+              '',
+              `状态: **${status}** (exit code: ${process.env.EXIT_CODE})`,
+              '',
+              '```text',
+              output.slice(0, 60000),
+              '```'
+            ].join('\n');
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body,
+            });
+
+      - name: Fail on findings
+        if: steps.scan.outputs.exit_code != '0'
+        run: |
+          echo "ai-code-guard found issues. See ai-code-guard-report.txt"
+          exit 1

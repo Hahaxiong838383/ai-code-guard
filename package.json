@@ -1,0 +1,31 @@
+{
+  "name": "ai-code-guard",
+  "version": "1.0.1",
+  "description": "AI code detection tool for common AI-generated mistakes",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "ai-code-guard": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc --noEmit",
+    "start": "node dist/index.js"
+  },
+  "keywords": [
+    "ai",
+    "static-analysis",
+    "typescript",
+    "javascript",
+    "security"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^22.13.8",
+    "typescript": "^5.7.3"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
