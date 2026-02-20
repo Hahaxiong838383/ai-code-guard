@@ -36,12 +36,15 @@ ai-code-guard pay --amount 66 --currency cny
 
 ## 支付支持
 
-如果你希望支持项目持续维护，可配置收款信息后使用 `pay` 子命令生成链接：
+如果你希望支持项目持续维护，可以使用以下方式打赏：
 
 ```bash
-export AI_SENTINEL_PAYPAL_ME_ID="your-paypal-id"
-export AI_SENTINEL_ALIPAY_DONATE_URL="https://qr.alipay.com/xxx"
+# 生成支付链接
+ai-code-guard pay --amount 9.99 --currency usd
+ai-code-guard pay --amount 66 --currency cny
 ```
+
+收款信息已内置，扫描代码后使用 pay 命令即可生成打赏链接。
 
 ## License
 
