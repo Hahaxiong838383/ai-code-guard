@@ -40,7 +40,7 @@ ai-code-guard pay --amount 66 --currency cny
 
 | 支付宝 | PayPal |
 | --- | --- |
-| ![支付宝收款二维码](alipay-qr.jpg) | ![PayPal 收款二维码](paypal-qr.jpg) |
+| ![支付宝收款二维码](https://raw.githubusercontent.com/Hahaxiong838383/ai-code-guard/main/alipay-qr.jpg) | ![PayPal 收款二维码](https://raw.githubusercontent.com/Hahaxiong838383/ai-code-guard/main/paypal-qr.jpg) |
 
 ## License
 
